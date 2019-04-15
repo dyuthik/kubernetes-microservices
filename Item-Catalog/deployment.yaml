@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: item-catalog-service
+  labels:
+    run: item-catalog-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: item-catalog-service
+  template:
+    metadata:
+      labels:
+        run: item-catalog-service
+    spec:
+      containers:
+      - name: item-catalog-service
+        image: dyuthik/item-catalog-service
+        ports:
+        - containerPort: 8088

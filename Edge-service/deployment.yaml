@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edge-service
+  labels:
+    run: edge-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: edge-service
+  template:
+    metadata:
+      labels:
+        run: edge-service
+    spec:
+      containers:
+      - name: edge-service
+        image: dyuthik/edge-service
+        ports:
+        - containerPort: 8080
